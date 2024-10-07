@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-website
+  namespace: myrunnereks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopping-website
+  template:
+    metadata:
+      labels:
+        app: shopping-website
+    spec:
+      containers:
+      - name: shopping-website
+        image: hemalathareddyburugupally/shopping_website:latest  # Use your actual Docker image
+        ports:
+        - containerPort: 80
